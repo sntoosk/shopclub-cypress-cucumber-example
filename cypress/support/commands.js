@@ -23,3 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('loginFake', (email) => {
+  cy.visit("https://www.shopclub.com.br/");
+  cy.get(".electrolux-shopclub-login-1-x-triggerLogin > .vtex-button > .vtex-button__label").click();
+  cy.get('#shopclub-login-email').type(email);
+  cy.get('.electrolux-shopclub-login-1-x-loginLayoutButton').click();
+});
